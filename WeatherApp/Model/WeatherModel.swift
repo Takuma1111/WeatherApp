@@ -25,3 +25,4 @@ struct Detail : Codable{
     let wind : String
     let wave : String
 }
+

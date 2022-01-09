@@ -8,17 +8,24 @@
 import Foundation
 
 class requestToWeatherAPI{
+    
+    var weather = weatherModel.self
+    var title : String = ""
+    var forecasts : [Forecasts] = []
+    
     func apiClient(){
         guard let url = URL(string: "https://weather.tsukumijima.net/api/forecast/city/140010") else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         let task = URLSession.shared.dataTask(with: request,completionHandler: { (data,response,error) in
             if let data = data {
-                print("受け取ったJSON",data)
               do {
-                let weather = try JSONDecoder().decode(weatherModel.self, from: data)
-                print(weather)
-                } catch  {
+                   let weather = try JSONDecoder().decode(weatherModel.self, from: data)
+                    self.title = weather.title
+                        for value in weather.forecasts{
+                            self.forecasts.append(value)
+                        }
+                } catch {
                     print(error.localizedDescription)
                 }
             }
