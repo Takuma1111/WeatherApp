@@ -9,11 +9,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    private let apiClient = requestToWeatherAPI()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        apiClient.apiClient()
     }
-
-
 }
-
