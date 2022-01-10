@@ -25,6 +25,8 @@ class requestToWeatherAPI{
                         for value in weather.forecasts{
                             self.forecasts.append(value)
                         }
+                print("タイトル：",self.title)
+                print("フォーキャスト：",self.forecasts)
                 } catch {
                     print(error.localizedDescription)
                 }
