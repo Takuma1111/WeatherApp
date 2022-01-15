@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController,UITableViewDelegate {
 
     
-    var prefecture : String = "g"
+    var prefecture : String = ""
     var weatherInfo : [Forecasts] = []
     
     @IBOutlet weak var tableView: UITableView!
@@ -22,8 +22,8 @@ class ViewController: UIViewController,UITableViewDelegate {
         
         tableView.register(UINib(nibName: "WeatherTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
         
-        let apiClient_1 = requestToWeatherAPI()
-        apiClient_1.apiClient(completion: { title,forecast  in
+        let requestToWeatherAPI = RequestToWeatherAPI()
+        requestToWeatherAPI.apiClient(completion: { title,forecast  in
             self.prefecture = title
             self.weatherInfo = forecast
             DispatchQueue.main.sync {
@@ -40,7 +40,6 @@ class ViewController: UIViewController,UITableViewDelegate {
 }
 extension ViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection tsection: Int) -> Int {
-        print(weatherInfo.count)
         return weatherInfo.count
     }
     
