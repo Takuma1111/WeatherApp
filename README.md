@@ -1,11 +1,13 @@
 # WeatherApp
 天気情報が見れるアプリです
 
-#Model
+
+# MVCで作成
+・Model
 APIを叩いてデータを取得
 
-#View
+・View
 UITableViewControllerのセルを作成
 
-#Controller
+・Controller
 Modelからのデータ取得通知を受け、画面を更新
