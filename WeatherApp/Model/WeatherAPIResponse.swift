@@ -7,7 +7,7 @@
 
 import Foundation
 
-class requestToWeatherAPI{
+class RequestToWeatherAPI{
     
     var weather = weatherModel.self
     var title : String = ""
@@ -26,7 +26,7 @@ class requestToWeatherAPI{
                     self.title = weather.title
                         for value in weather.forecasts{
                             self.forecasts.append(value)
-                        }
+                    }
                 
                 completion(self.title,self.forecasts)
                 } catch {

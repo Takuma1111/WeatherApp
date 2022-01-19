@@ -33,7 +33,7 @@ class ViewController: UIViewController,UITableViewDelegate {
         setUpIndicator()
         
         tableView.register(UINib(nibName: "WeatherTableViewCell", bundle: nil),forCellReuseIdentifier: "customCell")
-        
+ 
       
     }
     
@@ -46,7 +46,6 @@ class ViewController: UIViewController,UITableViewDelegate {
 }
 extension ViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection tsection: Int) -> Int {
-        print(weatherInfo.count)
         return weatherInfo.count
     }
     
