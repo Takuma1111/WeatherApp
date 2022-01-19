@@ -13,9 +13,10 @@ class RequestToWeatherAPI{
     var title : String = ""
     var forecasts : [Forecasts] = []
     
-    func apiClient(completion: @escaping (String,[Forecasts]) -> Void){
+    func apiClient(keyword : String,completion: @escaping (String,[Forecasts]) -> Void){
     
-        guard let url = URL(string: "https://weather.tsukumijima.net/api/forecast/city/140010") else {         return}
+        let searchURL = "https://weather.tsukumijima.net/api/forecast/city/\(keyword)"
+        guard let url = URL(string: searchURL) else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         let task = URLSession.shared.dataTask(with: request,completionHandler: { (data,response,error) in
