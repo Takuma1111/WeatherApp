@@ -16,22 +16,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="I1b-SY-wp2">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5EE-hZ-gSa">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
+                                <subviews>
+                                    <searchBar contentMode="redraw" id="YUs-z1-hA1">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tJm-tZ-Nm2">
+                                        <rect key="frame" x="0.0" y="51" width="414" height="767"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="I1b-SY-wp2" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="JqJ-4B-fdj"/>
-                            <constraint firstItem="I1b-SY-wp2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KPQ-pl-nO3"/>
-                            <constraint firstItem="I1b-SY-wp2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ang-sL-aqw"/>
-                            <constraint firstItem="I1b-SY-wp2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="jJD-49-DUI"/>
+                            <constraint firstItem="5EE-hZ-gSa" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.912946" id="IjI-re-z7t"/>
+                            <constraint firstItem="5EE-hZ-gSa" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LHA-RK-cqy"/>
+                            <constraint firstItem="5EE-hZ-gSa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="icm-5q-Rpi"/>
+                            <constraint firstItem="5EE-hZ-gSa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xlA-LS-QKa"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="I1b-SY-wp2" id="Lqq-4T-FKD"/>
+                        <outlet property="searchBar" destination="YUs-z1-hA1" id="Heh-Tl-jVN"/>
+                        <outlet property="tableView" destination="tJm-tZ-Nm2" id="oLh-70-TOH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
