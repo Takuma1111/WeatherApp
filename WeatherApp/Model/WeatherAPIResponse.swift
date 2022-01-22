@@ -18,20 +18,12 @@ class RequestToWeatherAPI{
         let searchURL = "https://weather.tsukumijima.net/api/forecast/city/\(keyword)"
         guard let url = URL(string: searchURL) else { return }
         var request = URLRequest(url: url,timeoutInterval: 4.0)
-        
+        request.timeoutInterval = 8.0
         request.httpMethod = "GET"
         
         let task = URLSession.shared.dataTask(with: request,completionHandler: { (data,response,error) in
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 8.0, execute: {
-                if let err = error as NSError?{
-                    if err.code == NSURLErrorTimedOut{
-                        completion(self.title,self.forecasts)
-                    }
-                     return
-            }
-            })
 
+            self.forecasts = []
             if let data = data {
               do {
                    let weather = try JSONDecoder().decode(weatherModel.self, from: data)
@@ -42,9 +34,8 @@ class RequestToWeatherAPI{
                 
                 completion(self.title,self.forecasts)
                 } catch {
-                    print("API取得エラー：",error.localizedDescription)
+                    print(error.localizedDescription)
                     completion(self.title,self.forecasts)
-
                 }
             }
             

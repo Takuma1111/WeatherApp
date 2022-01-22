@@ -83,7 +83,7 @@ extension ViewController : UISearchBarDelegate{
                 let ids = jsonReader.searchIdsJson(keyword: searchText)
                 if ids != "none"{
                     reqToWeatherAPI.apiClient(keyword: ids
-                                              ,completion: { title,forecast  in
+                                              ,completion: { title,forecast  in                                        
                         self.prefecture = title
                         self.weatherInfo = forecast
                         DispatchQueue.main.sync {
