@@ -14,12 +14,15 @@ class ViewController: UIViewController,UITableViewDelegate {
     private var weatherInfo : [Forecasts] = []
     
     private let jsonReader = SearchIdsJson()
-    private let reqToWeatherAPI = requestToWeatherAPI()
+    private let reqToWeatherAPI = RequestToWeatherAPI()
     private var indicator = UIActivityIndicatorView()
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    //エラー通知メッセージ
+    let noInput = SearchError.noInput
+    let noResponse = SearchError.noResponse
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,25 +46,26 @@ class ViewController: UIViewController,UITableViewDelegate {
         indicator.color = .lightGray
         view.addSubview(indicator)
     }
+    
+    private func showSearchAlert(_ message : String) {
+           let alert = UIAlertController(title: "⚠️警告⚠️", message: message, preferredStyle: .alert)
+           alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+           present(alert, animated: true, completion: nil)
+       }
+    
 }
+
 extension ViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection tsection: Int) -> Int {
         return weatherInfo.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! WeatherTableViewCell
-
-  
             cell.titleLabel.text = prefecture
             cell.dateLabel.text = weatherInfo[indexPath.row].date
             cell.telopLabel.text = weatherInfo[indexPath.row].telop
-
-            
-            return cell
-          
+        return cell
     }
 }
 
@@ -83,17 +87,21 @@ extension ViewController : UISearchBarDelegate{
                         self.prefecture = title
                         self.weatherInfo = forecast
                         DispatchQueue.main.sync {
-                               self.tableView.reloadData()
-                                self.indicator.stopAnimating()
-                               return
-                           }
+                            self.tableView.reloadData()
+                            if self.prefecture == "" && self.weatherInfo.count == 0{
+                                self.showSearchAlert(self.noResponse.errorDescription!)
+                            }
+                            self.indicator.stopAnimating()
+                            return
+                        }
                     })
                 }else{
                     indicator.stopAnimating()
+                    showSearchAlert(noResponse.errorDescription!)
                 }
-              
             }else{
                 indicator.stopAnimating()
+                showSearchAlert(noInput.errorDescription!)
             }
         }
     }
