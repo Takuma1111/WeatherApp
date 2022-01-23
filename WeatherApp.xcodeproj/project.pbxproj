@@ -22,6 +22,7 @@
 		29F44BC827980802007C252E /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 29F44BC727980802007C252E /* test.json */; };
 		29F44BCA27983DFF007C252E /* WeatherIdsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F44BC927983DFF007C252E /* WeatherIdsModel.swift */; };
 		29F44BCE279842ED007C252E /* JsonReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F44BCD279842ED007C252E /* JsonReader.swift */; };
+		29F44BD02798527F007C252E /* SearchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F44BCF2798527F007C252E /* SearchError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		29F44BC727980802007C252E /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 		29F44BC927983DFF007C252E /* WeatherIdsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIdsModel.swift; sourceTree = "<group>"; };
 		29F44BCD279842ED007C252E /* JsonReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonReader.swift; sourceTree = "<group>"; };
+		29F44BCF2798527F007C252E /* SearchError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				29F44B88278ABCAA007C252E /* ViewController.swift */,
+				29F44BCF2798527F007C252E /* SearchError.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 			files = (
 				29F44BCE279842ED007C252E /* JsonReader.swift in Sources */,
 				29F44BBD278AC713007C252E /* WeatherTableViewCell.swift in Sources */,
+				29F44BD02798527F007C252E /* SearchError.swift in Sources */,
 				29F44B89278ABCAA007C252E /* ViewController.swift in Sources */,
 				29F44B85278ABCAA007C252E /* AppDelegate.swift in Sources */,
 				29F44BBA278ABE3D007C252E /* WeatherAPIResponse.swift in Sources */,

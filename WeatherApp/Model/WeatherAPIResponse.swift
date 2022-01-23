@@ -17,9 +17,13 @@ class RequestToWeatherAPI{
     
         let searchURL = "https://weather.tsukumijima.net/api/forecast/city/\(keyword)"
         guard let url = URL(string: searchURL) else { return }
-        var request = URLRequest(url: url)
+        var request = URLRequest(url: url,timeoutInterval: 4.0)
+        request.timeoutInterval = 8.0
         request.httpMethod = "GET"
+        
         let task = URLSession.shared.dataTask(with: request,completionHandler: { (data,response,error) in
+
+            self.forecasts = []
             if let data = data {
               do {
                    let weather = try JSONDecoder().decode(weatherModel.self, from: data)
@@ -31,6 +35,7 @@ class RequestToWeatherAPI{
                 completion(self.title,self.forecasts)
                 } catch {
                     print(error.localizedDescription)
+                    completion(self.title,self.forecasts)
                 }
             }
             
