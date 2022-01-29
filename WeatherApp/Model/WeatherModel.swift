@@ -16,7 +16,6 @@ struct Forecasts : Codable{
     let date : String
     let dateLabel : String
     let telop : String
-//    let detail : Detail
     let image : Image
 }
 
