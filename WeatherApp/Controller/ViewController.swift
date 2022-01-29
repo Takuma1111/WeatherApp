@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WebKit
 
 class ViewController: UIViewController,UITableViewDelegate {
 
@@ -16,6 +17,7 @@ class ViewController: UIViewController,UITableViewDelegate {
     private let jsonReader = SearchIdsJson()
     private let reqToWeatherAPI = RequestToWeatherAPI()
     private var indicator = UIActivityIndicatorView()
+    private let getImageByUrl = ExtensionConversion()
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -35,9 +37,9 @@ class ViewController: UIViewController,UITableViewDelegate {
         //indicatorをセットアップ
         setUpIndicator()
         
+        //cellを登録
         tableView.register(UINib(nibName: "WeatherTableViewCell", bundle: nil),forCellReuseIdentifier: "customCell")
- 
-      
+              
     }
     
     private func setUpIndicator(){
@@ -52,6 +54,8 @@ class ViewController: UIViewController,UITableViewDelegate {
            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
            present(alert, animated: true, completion: nil)
        }
+
+    
     
 }
 
@@ -63,16 +67,21 @@ extension ViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! WeatherTableViewCell
             cell.titleLabel.text = prefecture
+            cell.weatherImage.image = getImageByUrl.extensionConversion(weatherInfo[indexPath.row].image.url)
             cell.dateLabel.text = weatherInfo[indexPath.row].date
             cell.telopLabel.text = weatherInfo[indexPath.row].telop
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+          return CGFloat(self.view.layer.bounds.height / 4)
+      }
 }
 
 extension ViewController : UISearchBarDelegate{
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        indicator.startAnimating()
+        indicator.startAnimating()  
         guard let searchText = searchBar.text else {
             indicator.stopAnimating()
             return
