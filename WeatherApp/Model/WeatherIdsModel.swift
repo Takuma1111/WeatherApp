@@ -7,6 +7,7 @@
 
 import Foundation
 
+//Jsonを
 struct WeatherIdsModel : Codable{
     var title:String
     var id : String

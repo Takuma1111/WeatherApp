@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SwiftSVG
+
 
 class ViewController: UIViewController,UITableViewDelegate {
 
@@ -34,10 +36,11 @@ class ViewController: UIViewController,UITableViewDelegate {
 
         //indicatorをセットアップ
         setUpIndicator()
-        
+    
+        //cellを登録
         tableView.register(UINib(nibName: "WeatherTableViewCell", bundle: nil),forCellReuseIdentifier: "customCell")
+        
  
-      
     }
     
     private func setUpIndicator(){
@@ -51,7 +54,16 @@ class ViewController: UIViewController,UITableViewDelegate {
            let alert = UIAlertController(title: "⚠️警告⚠️", message: message, preferredStyle: .alert)
            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
            present(alert, animated: true, completion: nil)
-       }
+    }
+    
+    private func getImageByUrl(url: String) -> UIView{
+        let svgURL = URL(string: url)!
+        let hammock = UIView(SVGURL: svgURL) { (svgLayer) in
+            svgLayer.fillColor = UIColor(red:0.52, green:0.16, blue:0.32, alpha:1.00).cgColor
+            svgLayer.resizeToFit(self.view.bounds)
+        }
+        return hammock
+    }
     
 }
 
@@ -62,10 +74,16 @@ extension ViewController : UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! WeatherTableViewCell
+
             cell.titleLabel.text = prefecture
+            cell.weatherView = getImageByUrl(url: weatherInfo[indexPath.row].image.url)
             cell.dateLabel.text = weatherInfo[indexPath.row].date
             cell.telopLabel.text = weatherInfo[indexPath.row].telop
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(self.view.layer.bounds.height / 4)
     }
 }
 
@@ -92,6 +110,8 @@ extension ViewController : UISearchBarDelegate{
                                 self.showSearchAlert(self.noResponse.errorDescription!)
                             }
                             self.indicator.stopAnimating()
+                            print("画像イメージ：",self.weatherInfo[0].image.url)
+    
                             return
                         }
                     })

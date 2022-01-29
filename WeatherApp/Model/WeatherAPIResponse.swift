@@ -28,6 +28,7 @@ class RequestToWeatherAPI{
               do {
                    let weather = try JSONDecoder().decode(weatherModel.self, from: data)
                     self.title = weather.title
+                    print("タイトル：",self.title)
                         for value in weather.forecasts{
                             self.forecasts.append(value)
                     }

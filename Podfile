@@ -7,6 +7,8 @@ target 'WeatherApp' do
 
   # Pods for WeatherApp
 
+  pod 'SwiftSVG', '~> 2.0'
+
   target 'WeatherAppTests' do
     inherit! :search_paths
     # Pods for testing
