@@ -10,14 +10,14 @@ import Foundation
 struct weatherModel : Codable{
     let title:String
     let link:String
-    let description : [String:String]
     let forecasts:[Forecasts]
 }
 struct Forecasts : Codable{
     let date : String
     let dateLabel : String
     let telop : String
-    let detail : Detail
+//    let detail : Detail
+    let image : Image
 }
 
 struct Detail : Codable{
@@ -26,3 +26,9 @@ struct Detail : Codable{
     let wave : String
 }
 
+struct Image : Codable{
+    let title: String
+    let url : String
+    let width : Int
+    let height : Int
+}

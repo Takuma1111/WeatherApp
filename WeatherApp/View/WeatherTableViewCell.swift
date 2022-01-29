@@ -12,6 +12,8 @@ class WeatherTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var telopLabel: UILabel!
     
+    @IBOutlet weak var weatherImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
