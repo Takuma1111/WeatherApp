@@ -15,7 +15,6 @@ class ExtensionConversion{
         let url = URL(string: imageURL)
         do {
             let data = try Data(contentsOf: url!)
-            print("データの中身",data.base64EncodedData())
             return UIImage(data: data)!
         } catch let err {
             print("Error : \(err.localizedDescription)")

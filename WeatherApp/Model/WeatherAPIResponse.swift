@@ -10,10 +10,9 @@ import Foundation
 class RequestToWeatherAPI{
     
     var weather = weatherModel.self
-    var title : String = ""
-    var forecasts : [Forecasts] = []
+    var weatherDataAll : weatherModel?
     
-    func apiClient(keyword : String,completion: @escaping (String,[Forecasts]) -> Void){
+    func apiClient(keyword : String,completion: @escaping (weatherModel) -> Void){
     
         let searchURL = "https://weather.tsukumijima.net/api/forecast/city/\(keyword)"
         guard let url = URL(string: searchURL) else { return }
@@ -23,19 +22,18 @@ class RequestToWeatherAPI{
         
         let task = URLSession.shared.dataTask(with: request,completionHandler: { (data,response,error) in
 
-            self.forecasts = []
             if let data = data {
               do {
-                   let weather = try JSONDecoder().decode(weatherModel.self, from: data)
-                    self.title = weather.title
-                        for value in weather.forecasts{
-                            self.forecasts.append(value)
-                    }
+                   let weatherData = try JSONDecoder().decode(weatherModel.self, from: data)
+                    
+                    let weatherModelData : weatherModel = weatherModel.init(title: weatherData.title, link: weatherData.link, forecasts: weatherData.forecasts)
                 
-                completion(self.title,self.forecasts)
+                    self.weatherDataAll = weatherModelData
+                
+                    completion(self.weatherDataAll!)
                 } catch {
                     print(error.localizedDescription)
-                    completion(self.title,self.forecasts)
+                    completion(self.weatherDataAll!)
                 }
             }
             
