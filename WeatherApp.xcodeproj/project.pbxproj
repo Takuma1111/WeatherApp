@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		291008B727A4EAF00088C452 /* ExtensionConversion .swift in Sources */ = {isa = PBXBuildFile; fileRef = 291008B627A4EAF00088C452 /* ExtensionConversion .swift */; };
+		291008B727A4EAF00088C452 /* ExtensionConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291008B627A4EAF00088C452 /* ExtensionConversion.swift */; };
+		291008BA27A7E1230088C452 /* kumo-illust12.png in Resources */ = {isa = PBXBuildFile; fileRef = 291008B927A7E1230088C452 /* kumo-illust12.png */; };
 		29F44B85278ABCAA007C252E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F44B84278ABCAA007C252E /* AppDelegate.swift */; };
 		29F44B87278ABCAA007C252E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F44B86278ABCAA007C252E /* SceneDelegate.swift */; };
 		29F44B89278ABCAA007C252E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F44B88278ABCAA007C252E /* ViewController.swift */; };
@@ -44,7 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		291008B627A4EAF00088C452 /* ExtensionConversion .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExtensionConversion .swift"; sourceTree = "<group>"; };
+		291008B627A4EAF00088C452 /* ExtensionConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionConversion.swift; sourceTree = "<group>"; };
+		291008B927A7E1230088C452 /* kumo-illust12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kumo-illust12.png"; sourceTree = "<group>"; };
 		29F44B81278ABCAA007C252E /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29F44B84278ABCAA007C252E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29F44B86278ABCAA007C252E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		291008B827A7E1130088C452 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				291008B927A7E1230088C452 /* kumo-illust12.png */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 		29F44B78278ABCAA007C252E = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +127,7 @@
 		29F44B83278ABCAA007C252E /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				291008B827A7E1130088C452 /* Image */,
 				29F44BC727980802007C252E /* test.json */,
 				29F44BB6278ABD4D007C252E /* Controller */,
 				29F44BB5278ABD44007C252E /* Model */,
@@ -174,7 +185,7 @@
 			children = (
 				29F44B88278ABCAA007C252E /* ViewController.swift */,
 				29F44BCF2798527F007C252E /* SearchError.swift */,
-				291008B627A4EAF00088C452 /* ExtensionConversion .swift */,
+				291008B627A4EAF00088C452 /* ExtensionConversion.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -285,6 +296,7 @@
 				29F44BBE278AC713007C252E /* WeatherTableViewCell.xib in Resources */,
 				29F44B91278ABCAD007C252E /* LaunchScreen.storyboard in Resources */,
 				29F44BC827980802007C252E /* test.json in Resources */,
+				291008BA27A7E1230088C452 /* kumo-illust12.png in Resources */,
 				29F44B8E278ABCAD007C252E /* Assets.xcassets in Resources */,
 				29F44B8C278ABCAA007C252E /* Main.storyboard in Resources */,
 			);
@@ -314,7 +326,7 @@
 				29F44BCE279842ED007C252E /* JsonReader.swift in Sources */,
 				29F44BBD278AC713007C252E /* WeatherTableViewCell.swift in Sources */,
 				29F44BD02798527F007C252E /* SearchError.swift in Sources */,
-				291008B727A4EAF00088C452 /* ExtensionConversion .swift in Sources */,
+				291008B727A4EAF00088C452 /* ExtensionConversion.swift in Sources */,
 				29F44B89278ABCAA007C252E /* ViewController.swift in Sources */,
 				29F44B85278ABCAA007C252E /* AppDelegate.swift in Sources */,
 				29F44BBA278ABE3D007C252E /* WeatherAPIResponse.swift in Sources */,
