@@ -11,6 +11,7 @@ struct weatherModel : Codable{
     let title:String
     let link:String
     let forecasts:[Forecasts]
+    
 }
 struct Forecasts : Codable{
     let date : String

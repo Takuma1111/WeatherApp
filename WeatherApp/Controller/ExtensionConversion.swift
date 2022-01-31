@@ -8,6 +8,7 @@
 
 import UIKit
 
+//画像の拡張子を変更する
 class ExtensionConversion{
     func extensionConversion(_ url : String) -> UIImage{
         let imageURL = url.replacingOccurrences(of: ".svg", with: ".png")

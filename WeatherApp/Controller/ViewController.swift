@@ -40,7 +40,14 @@ class ViewController: UIViewController,UITableViewDelegate {
         //cellを登録
         tableView.register(UINib(nibName: "WeatherTableViewCell", bundle: nil),forCellReuseIdentifier: "customCell")
               
-    
+        //背景色を空をイメージして水色に設定
+        self.view.backgroundColor = UIColor.init(red: 137/255,green: 189/255, blue: 222/255, alpha: 1)
+        self.tableView.backgroundColor = UIColor.init(red: 137/255,green: 189/255, blue: 222/255, alpha: 1)
+        
+        
+        
+        
+        
     }
     
     private func setUpIndicator(){
@@ -54,7 +61,7 @@ class ViewController: UIViewController,UITableViewDelegate {
            let alert = UIAlertController(title: "⚠️警告⚠️", message: message, preferredStyle: .alert)
            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
            present(alert, animated: true, completion: nil)
-       }
+    }
 
     
     
@@ -66,8 +73,10 @@ extension ViewController : UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! WeatherTableViewCell
-            cell.titleLabel.text = weatherData!.title
+        
+        cell.titleLabel.text = weatherData!.title
         cell.weatherImage.image = getImageByUrl.extensionConversion(weatherData!.forecasts[indexPath.row].image.url)
         cell.dateLabel.text = weatherData!.forecasts[indexPath.row].date
         cell.telopLabel.text = weatherData!.forecasts[indexPath.row].telop
@@ -86,11 +95,14 @@ extension ViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
           return CGFloat(self.view.layer.bounds.height / 4)
     }
+    
+
 }
 
 extension ViewController : UISearchBarDelegate{
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+      
         indicator.startAnimating()  
         guard let searchText = searchBar.text else {
             indicator.stopAnimating()
