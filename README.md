@@ -10,6 +10,7 @@ APIを叩いてデータを取得
 UITableViewControllerのセルを作成
 
 ・Controller ->
+ユーザの入力値をModelへ渡す
 
 
 
