@@ -45,9 +45,6 @@ class ViewController: UIViewController,UITableViewDelegate {
         self.tableView.backgroundColor = UIColor.init(red: 137/255,green: 189/255, blue: 222/255, alpha: 1)
         
         
-        
-        
-        
     }
     
     private func setUpIndicator(){
