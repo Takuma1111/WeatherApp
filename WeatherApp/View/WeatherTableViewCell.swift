@@ -19,7 +19,7 @@ class WeatherTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.contentView.backgroundColor = UIColor.init(red: 137/255,green: 189/255, blue: 222/255, alpha: 1)
+            self.contentView.backgroundColor = UIColor.init(red: 137/255,green: 189/255, blue: 222/255, alpha: 1)
         
         let imageView = UIImageView(image:cloudImage)
         let screenWidth:CGFloat = contentView.frame.size.width
