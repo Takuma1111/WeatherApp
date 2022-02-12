@@ -36,7 +36,6 @@ class RequestToWeatherAPI{
                     completion(self.weatherDataAll!)
                 }
             }
-            
         })
         task.resume()
     }

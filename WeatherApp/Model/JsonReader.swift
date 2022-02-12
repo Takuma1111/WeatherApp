@@ -20,17 +20,17 @@ class SearchIdsJson {
        }
         
        let decoder = JSONDecoder()
-       guard let employees = try? decoder.decode([WeatherIdsModel].self, from: data) else {
+       guard let jsons = try? decoder.decode([WeatherIdsModel].self, from: data) else {
            fatalError("JSON読み込みエラー")
        }
         
-       for employee in employees {
-        print(employee)
-        if employee.title == keyword{
-            print("検索結果：",employee.id)
-            return employee.id
+       for json in jsons {
+
+        if json.title == keyword{
+            print("検索結果：",json.id)
+            return json.id
         }
        }
-        return "none"
+        return "none"   
     }
 }
